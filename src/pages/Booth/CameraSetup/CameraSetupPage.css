@@ -1,0 +1,248 @@
+/* ============================================
+   Page: Camera Setup - Styles
+   ============================================ */
+
+.camera-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  overflow: hidden;
+}
+
+/* Background */
+.camera-page__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.camera-page__bg-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #050510 0%, #0a0518 100%);
+}
+
+.camera-page__bg-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+  filter: blur(60px);
+}
+
+/* Content */
+.camera-page__content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 480px;
+  gap: 1.5rem;
+}
+
+/* Step */
+.camera-page__step {
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #60a5fa;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Icon */
+.camera-page__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(6, 182, 212, 0.2));
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  color: #60a5fa;
+  transition: all 0.3s ease;
+}
+
+.camera-page__icon svg {
+  width: 56px;
+  height: 56px;
+}
+
+.camera-page__icon--pulse {
+  animation: iconPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px 10px rgba(59, 130, 246, 0.2);
+  }
+}
+
+.camera-page__icon--success {
+  background: linear-gradient(135deg, #22c55e, #10b981);
+  border-color: #22c55e;
+  color: white;
+  animation: successPop 0.4s ease;
+}
+
+@keyframes successPop {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Title */
+.camera-page__title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.camera-page__title {
+  margin: 0;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 800;
+  color: white;
+  line-height: 1.2;
+}
+
+.camera-page__title-highlight {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.camera-page__desc {
+  margin: 0;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  max-width: 380px;
+}
+
+/* Action */
+.camera-page__action {
+  width: 100%;
+  max-width: 320px;
+  margin-top: 1rem;
+}
+
+/* Denied state */
+.camera-page__denied {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 16px;
+}
+
+.camera-page__denied-icon {
+  color: #ef4444;
+}
+
+.camera-page__denied-icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.camera-page__denied h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #ef4444;
+}
+
+.camera-page__denied p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+/* Help */
+.camera-page__help {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  text-align: left;
+  max-width: 380px;
+}
+
+.camera-page__help-icon {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.camera-page__help-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.camera-page__help-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.camera-page__help-text strong {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.camera-page__help-text span {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+}
+
+/* Waiting */
+.camera-page__waiting {
+  margin: 0;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}

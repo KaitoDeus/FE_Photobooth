@@ -1,0 +1,56 @@
+/* ============================================
+   Component: QR Modal - Styles
+   ============================================ */
+
+.qr-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.qr-modal__desc {
+  margin: 0;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* QR Code */
+.qr-modal__code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  background: white;
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.qr-modal__code-placeholder {
+  width: 100%;
+  height: 100%;
+  color: #000;
+}
+
+.qr-modal__code-placeholder svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* URL */
+.qr-modal__url {
+  padding: 0.75rem 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  width: 100%;
+}
+
+.qr-modal__url span {
+  font-size: 0.75rem;
+  font-family: monospace;
+  color: rgba(255, 255, 255, 0.6);
+  word-break: break-all;
+}

@@ -1,0 +1,149 @@
+/* ============================================
+   Component: FloatingNav - Styles
+   ============================================ */
+
+.floating-nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(10, 5, 18, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.floating-nav--transparent {
+  background: rgba(10, 5, 18, 0.85);
+}
+
+/* Back Button */
+.floating-nav__back {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.floating-nav__back:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(-2px);
+}
+
+.floating-nav__back svg {
+  opacity: 0.8;
+}
+
+/* Spacer */
+.floating-nav__spacer {
+  flex: 1;
+}
+
+/* Menu Container */
+.floating-nav__menu-container {
+  position: relative;
+}
+
+/* Menu Button */
+.floating-nav__menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.floating-nav__menu-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.floating-nav__menu-btn--open {
+  background: rgba(147, 51, 234, 0.3);
+  border-color: rgba(147, 51, 234, 0.5);
+}
+
+/* Dropdown */
+.floating-nav__dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 200px;
+  background: rgba(20, 15, 30, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  animation: dropdownSlide 0.2s ease;
+}
+
+@keyframes dropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dropdown Item */
+.floating-nav__dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+
+.floating-nav__dropdown-item:hover {
+  background: rgba(147, 51, 234, 0.2);
+  color: white;
+}
+
+.floating-nav__dropdown-icon {
+  font-size: 16px;
+  width: 24px;
+  text-align: center;
+}
+
+.floating-nav__dropdown-label {
+  flex: 1;
+}
+
+/* Hide on very small screens the text */
+@media (max-width: 400px) {
+  .floating-nav__back span {
+    display: none;
+  }
+  
+  .floating-nav__back {
+    padding: 8px 10px;
+  }
+}

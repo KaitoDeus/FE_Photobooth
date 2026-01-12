@@ -1,0 +1,212 @@
+/* ============================================
+   Page: Countdown - Styles
+   ============================================ */
+
+.countdown-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Background */
+.countdown-page__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  transition: all 0.1s ease;
+}
+
+.countdown-page__bg-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #050510 0%, #000 100%);
+}
+
+.countdown-page__bg-radial {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, rgba(168, 85, 247, 0.15) 0%, transparent 50%);
+}
+
+.countdown-page__bg--flash {
+  background: white !important;
+}
+
+.countdown-page__bg--flash .countdown-page__bg-gradient,
+.countdown-page__bg--flash .countdown-page__bg-radial {
+  opacity: 0;
+}
+
+/* Shot Counter */
+.countdown-page__shot-counter {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+}
+
+.countdown-page__shot-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.countdown-page__shot-number {
+  font-size: 1rem;
+  font-weight: 800;
+  color: white;
+}
+
+/* Content */
+.countdown-page__content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.countdown-page__label {
+  position: absolute;
+  top: calc(50% - 190px);
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding-right: 0.2em; /* Compensate for letter-spacing */
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  animation: fadeInUp 0.5s ease;
+  z-index: 15;
+  white-space: nowrap;
+  text-align: center;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Number */
+.countdown-page__number-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+}
+
+.countdown-page__number {
+  font-size: 10rem;
+  font-weight: 900;
+  color: white;
+  line-height: 1;
+  background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.6) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: countPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-shadow: 0 0 60px rgba(168, 85, 247, 0.5);
+}
+
+@keyframes countPop {
+  0% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Flash Text */
+.countdown-page__flash-text {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  animation: flashPop 0.3s ease;
+}
+
+@keyframes flashPop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Progress Ring */
+.countdown-page__ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 280px;
+  height: 280px;
+  z-index: 5;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.countdown-page__ring-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 4;
+}
+
+.countdown-page__ring-progress {
+  fill: none;
+  stroke: url(#ring-gradient);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 283;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+/* Add gradient definition via CSS (fallback) */
+.countdown-page__ring-progress {
+  stroke: #a855f7;
+}
+
+/* Dark background for flash text visibility */
+.countdown-page__bg--flash ~ .countdown-page__content .countdown-page__flash-text {
+  color: #000;
+}

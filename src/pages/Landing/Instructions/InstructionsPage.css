@@ -1,0 +1,290 @@
+/* ============================================
+   Page: Instructions - Styles (Enhanced Bright Design)
+   ============================================ */
+
+.instructions-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0a0015 0%, #0f0a1a 50%, #0d0618 100%);
+  padding-top: 80px;
+}
+
+/* Hero */
+.instructions-page__hero {
+  position: relative;
+  padding: 6rem 2rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.instructions-page__hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.instructions-page__hero-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(168, 85, 247, 0.1) 50%, transparent 70%);
+  filter: blur(80px);
+  animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+.instructions-page__hero-title {
+  position: relative;
+  z-index: 10;
+  margin: 0 0 1.25rem;
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 0 60px rgba(168, 85, 247, 0.3);
+}
+
+.instructions-page__hero-desc {
+  position: relative;
+  z-index: 10;
+  margin: 0 auto;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 650px;
+}
+
+/* Section Title */
+.instructions-page__section-title {
+  margin: 0 0 3rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: white;
+  text-align: center;
+  text-shadow: 0 0 40px rgba(168, 85, 247, 0.2);
+}
+
+/* Steps */
+.instructions-page__steps {
+  padding: 5rem 2rem;
+}
+
+.instructions-page__steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.instructions-page__step-card {
+  position: relative;
+  padding: 3rem 2rem 2.5rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.instructions-page__step-card:hover {
+  background: linear-gradient(180deg, rgba(168, 85, 247, 0.15), rgba(168, 85, 247, 0.05));
+  border-color: rgba(168, 85, 247, 0.4);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(168, 85, 247, 0.15);
+}
+
+.instructions-page__step-number {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  border-radius: 50%;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+}
+
+.instructions-page__step-icon {
+  display: inline-block;
+  font-size: 3rem;
+  margin-bottom: 1.25rem;
+  filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.3));
+}
+
+.instructions-page__step-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+}
+
+.instructions-page__step-desc {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+}
+
+/* Tips */
+.instructions-page__tips {
+  padding: 5rem 2rem;
+  background: linear-gradient(180deg, rgba(168, 85, 247, 0.05), transparent);
+}
+
+.instructions-page__tips-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.instructions-page__tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.instructions-page__tip:hover {
+  border-color: rgba(251, 191, 36, 0.3);
+  background: rgba(251, 191, 36, 0.05);
+}
+
+.instructions-page__tip-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.3));
+}
+
+.instructions-page__tip-text {
+  margin: 0;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+}
+
+/* Developer */
+.instructions-page__developer {
+  padding: 5rem 2rem;
+}
+
+.instructions-page__developer-card {
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 3.5rem;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(236, 72, 153, 0.1), rgba(99, 102, 241, 0.15));
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 32px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(168, 85, 247, 0.1);
+}
+
+.instructions-page__developer-avatar {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.3));
+}
+
+.instructions-page__developer-title {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #d8b4fe;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.instructions-page__developer-name {
+  margin: 0 0 0.75rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: white;
+}
+
+.instructions-page__developer-desc {
+  margin: 0 0 2rem;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+}
+
+.instructions-page__developer-tech {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.instructions-page__tech-tag {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.instructions-page__tech-tag:hover {
+  background: rgba(168, 85, 247, 0.2);
+  border-color: rgba(168, 85, 247, 0.4);
+  color: #d8b4fe;
+}
+
+/* CTA */
+.instructions-page__cta {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.instructions-page__cta-btn {
+  padding: 1.125rem 3rem;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  border: none;
+  border-radius: 9999px;
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 25px rgba(168, 85, 247, 0.4);
+}
+
+.instructions-page__cta-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .instructions-page__steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .instructions-page__steps-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

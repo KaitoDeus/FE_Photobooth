@@ -1,0 +1,85 @@
+/* ============================================
+   Common Component: Card Styles
+   ============================================ */
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Variants */
+.card--default {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card--elevated {
+  background: rgba(30, 30, 40, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 10px 40px -10px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+}
+
+.card--outlined {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.card--glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Hoverable */
+.card--hoverable {
+  cursor: pointer;
+}
+
+.card--hoverable:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+}
+
+.card--hoverable:hover.card--default,
+.card--hoverable:hover.card--elevated {
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+.card--hoverable:hover.card--glass {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Selected State */
+.card--selected {
+  border-color: #a855f7 !important;
+  box-shadow:
+    0 0 0 2px rgba(168, 85, 247, 0.3),
+    0 10px 40px -10px rgba(168, 85, 247, 0.4);
+}
+
+.card--selected::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), transparent);
+  pointer-events: none;
+}
+
+/* Sub-components */
+.card__header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card__body {
+  padding: 1.5rem;
+}
+
+.card__footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+}

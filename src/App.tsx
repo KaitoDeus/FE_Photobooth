@@ -17,7 +17,6 @@ import {
   HomePage,
   AboutPage,
   InstructionsPage,
-  FeaturesPage,
   ContactPage,
 } from './pages';
 import { EditEffectsPanel, FrameSelectionPanel, QrModal, CustomFrame, FloatingNav } from './components';
@@ -25,7 +24,7 @@ import { useBoothSession } from './hooks';
 import './styles/globals.css';
 
 // Extended screen type to include landing pages
-type AppScreen = ScreenName | 'HOME' | 'ABOUT' | 'INSTRUCTIONS' | 'FEATURES' | 'CONTACT';
+type AppScreen = ScreenName | 'HOME' | 'ABOUT' | 'INSTRUCTIONS' | 'CONTACT';
 
 // Helper to get photo count from mode
 const getPhotoCount = (mode: PhotoMode): number => {
@@ -85,7 +84,6 @@ const App: React.FC = () => {
     'HOME': '/',
     'ABOUT': '/about',
     'INSTRUCTIONS': '/instructions',
-    'FEATURES': '/features',
     'CONTACT': '/contact',
   };
 
@@ -104,7 +102,6 @@ const App: React.FC = () => {
     '/about': 'ABOUT',
     '/contact': 'CONTACT',
     '/instructions': 'INSTRUCTIONS',
-    '/features': 'FEATURES',
   };
 
   // Initialize from URL on mount
@@ -310,13 +307,7 @@ const App: React.FC = () => {
         />
       )}
       
-      {currentScreen === 'FEATURES' && (
-        <FeaturesPage 
-          lang={lang} 
-          setLang={setLang}
-          onNavigate={navigateToPath}
-        />
-      )}
+
 
       {currentScreen === 'CONTACT' && (
         <ContactPage 

@@ -16,4 +16,4 @@ export {
 } from './Booth';
 
 // Landing Pages
-export { HomePage, AboutPage, InstructionsPage, FeaturesPage, ContactPage } from './Landing';
+export { HomePage, AboutPage, InstructionsPage, ContactPage } from './Landing';

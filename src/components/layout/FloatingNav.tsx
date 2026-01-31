@@ -32,7 +32,6 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
 
   const menuLinks = [
     { path: '/', label: t.home, icon: '🏠' },
-    { path: '/features', label: t.features, icon: '✨' },
     { path: '/about', label: t.about, icon: '📖' },
     { path: '/contact', label: lang === 'vi' ? 'Liên hệ' : 'Contact', icon: '📞' },
     { path: '/instructions', label: t.instructions, icon: '📋' },

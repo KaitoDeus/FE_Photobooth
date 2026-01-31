@@ -8,7 +8,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  flex: 1;
+  height: 100%;
   width: 100%;
   overflow: hidden;
 }
@@ -119,7 +120,7 @@
   justify-content: center;
   width: 100%;
   max-width: 32rem;
-  padding: 3rem 1.5rem;
+  padding: 2rem 1.5rem;
   text-align: center;
   flex: 1;
 }
@@ -130,7 +131,7 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .welcome-page__logo-icon {

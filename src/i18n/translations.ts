@@ -7,8 +7,7 @@ import type { Language } from '../types';
 /**
  * Translation dictionary for all supported languages
  */
-export const translations = {
-  vi: {
+const viTranslations = {
     welcome: {
       cta: "BẮT ĐẦU CHỤP ẢNH",
       helper: "Không cần đăng nhập – Ảnh không lưu trực tuyến",
@@ -250,7 +249,11 @@ export const translations = {
       developerDesc: "Dự án cá nhân thể hiện kỹ năng phát triển React, TypeScript và Spring Boot.",
       ctaBtn: "Bắt Đầu Chụp Ảnh"
     }
-  }
+};
+
+export const translations = {
+  vi: viTranslations,
+  en: viTranslations,
 } as const;
 
 /**
@@ -261,4 +264,7 @@ export const getTranslation = (lang: Language) => translations[lang];
 /**
  * Translation type
  */
+
 export type Translations = typeof translations.vi;
+
+export type TranslationKey = keyof Translations;

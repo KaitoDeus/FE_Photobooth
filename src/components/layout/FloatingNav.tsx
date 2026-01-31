@@ -31,11 +31,11 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
   const menuRef = useRef<HTMLDivElement>(null);
 
   const menuLinks = [
-    { path: '/', label: t.home, icon: '🏠' },
-    { path: '/about', label: t.about, icon: '📖' },
-    { path: '/contact', label: lang === 'vi' ? 'Liên hệ' : 'Contact', icon: '📞' },
-    { path: '/instructions', label: t.instructions, icon: '📋' },
-    { path: '/booth', label: t.enterBooth || 'Photo Booth', icon: '📸' },
+    { path: '/', label: t.home, icon: '' },
+    { path: '/about', label: t.about, icon: '' },
+    { path: '/contact', label: 'Liên hệ', icon: '' },
+    { path: '/instructions', label: t.instructions, icon: '' },
+    { path: '/booth', label: t.enterBooth || 'Photo Booth', icon: '' },
   ];
 
   // Close menu when clicking outside
@@ -59,10 +59,7 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
       {/* Back Button */}
       {showBack && onBack && (
         <button className="floating-nav__back" onClick={onBack} aria-label="Go back">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
-          </svg>
-          <span>{lang === 'vi' ? 'Quay lại' : 'Back'}</span>
+          <span>Quay lại</span>
         </button>
       )}
 
@@ -76,13 +73,7 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Open menu"
         >
-          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-            {menuOpen ? (
-              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-            ) : (
-              <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-            )}
-          </svg>
+          <span>{menuOpen ? '✕' : '☰'}</span>
         </button>
 
         {/* Dropdown Menu */}
@@ -94,7 +85,6 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
                 className="floating-nav__dropdown-item"
                 onClick={() => handleMenuClick(link.path)}
               >
-                <span className="floating-nav__dropdown-icon">{link.icon}</span>
                 <span className="floating-nav__dropdown-label">{link.label}</span>
               </button>
             ))}

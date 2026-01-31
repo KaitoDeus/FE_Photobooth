@@ -137,6 +137,33 @@ export const ActionsPage: React.FC<ActionsPageProps> = ({
     }
   };
 
+  const handlePrintA4 = () => {
+    if (!previewImage) return;
+
+    const printWindow = window.open('', '_blank');
+    if (printWindow) {
+      printWindow.document.write(`
+        <html>
+          <head>
+            <title>In ảnh A4</title>
+            <style>
+              @page { size: A4; margin: 0; }
+              body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: white; }
+              img { max-width: 100%; max-height: 100%; object-fit: contain; }
+            </style>
+          </head>
+          <body>
+            <img src="${previewImage}" onload="setTimeout(() => { window.print(); window.close(); }, 500)" />
+          </body>
+        </html>
+      `);
+      printWindow.document.close();
+    }
+    
+    // Resume standard flow
+    onPrint();
+  };
+
   return (
     <div className="actions-page">
       {/* Background */}
@@ -204,7 +231,7 @@ export const ActionsPage: React.FC<ActionsPageProps> = ({
               variant="primary"
               size="xl"
               fullWidth
-              onClick={onPrint}
+              onClick={handlePrintA4}
               leftIcon={
                 <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
                   <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>

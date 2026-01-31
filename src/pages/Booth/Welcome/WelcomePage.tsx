@@ -11,13 +11,12 @@ import './WelcomePage.css';
 export interface WelcomePageProps {
   onStart: () => void;
   lang: Language;
-  setLang: (lang: Language) => void;
 }
 
 /**
  * Welcome Page - Entry point of the photobooth application
  */
-export const WelcomePage: React.FC<WelcomePageProps> = ({ onStart, lang, setLang }) => {
+export const WelcomePage: React.FC<WelcomePageProps> = ({ onStart, lang }) => {
   const t = getTranslation(lang).welcome;
 
   // Handle spacebar press to start
@@ -35,22 +34,6 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onStart, lang, setLang
 
   return (
     <div className="welcome-page">
-      {/* Language Switcher */}
-      <div className="welcome-page__lang-switcher">
-        <button 
-          onClick={() => setLang('en')}
-          className={`welcome-page__lang-btn ${lang === 'en' ? 'welcome-page__lang-btn--active' : ''}`}
-        >
-          EN
-        </button>
-        <button 
-          onClick={() => setLang('vi')}
-          className={`welcome-page__lang-btn ${lang === 'vi' ? 'welcome-page__lang-btn--active' : ''}`}
-        >
-          VI
-        </button>
-      </div>
-
       {/* Background Effects */}
       <div className="welcome-page__bg">
         <div className="welcome-page__bg-gradient"></div>

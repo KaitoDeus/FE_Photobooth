@@ -5,7 +5,7 @@
 /**
  * Supported languages in the application
  */
-export type Language = 'en' | 'vi';
+export type Language = 'vi';
 
 /**
  * Screen names for navigation

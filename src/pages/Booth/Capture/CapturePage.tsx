@@ -221,7 +221,7 @@ export const CapturePage: React.FC<CapturePageProps> = ({
             </div>
           </>
         ) : (
-          <div className="capture-page__flash-text">📸</div>
+          <div className="capture-page__flash-text"></div>
         )}
       </div>
 

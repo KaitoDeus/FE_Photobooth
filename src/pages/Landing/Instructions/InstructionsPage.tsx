@@ -10,61 +10,60 @@ import './InstructionsPage.css';
 
 export interface InstructionsPageProps {
   lang: Language;
-  setLang: (lang: Language) => void;
   onNavigate: (path: string) => void;
 }
 
-export const InstructionsPage: React.FC<InstructionsPageProps> = ({ lang, setLang, onNavigate }) => {
+export const InstructionsPage: React.FC<InstructionsPageProps> = ({ lang, onNavigate }) => {
   const t = getTranslation(lang).instructions;
 
   const steps = [
     {
       step: '1',
-      icon: '🖱️',
+      icon: '',
       title: t.step1Title,
       desc: t.step1Desc,
     },
     {
       step: '2',
-      icon: '📸',
+      icon: '',
       title: t.step2Title,
       desc: t.step2Desc,
     },
     {
       step: '3',
-      icon: '🎨',
+      icon: '',
       title: t.step3Title,
       desc: t.step3Desc,
     },
     {
       step: '4',
-      icon: '⏱️',
+      icon: '',
       title: t.step4Title,
       desc: t.step4Desc,
     },
     {
       step: '5',
-      icon: '✅',
+      icon: '',
       title: t.step5Title,
       desc: t.step5Desc,
     },
     {
       step: '6',
-      icon: '📲',
+      icon: '',
       title: t.step6Title,
       desc: t.step6Desc,
     },
   ];
 
   const tips = [
-    { icon: '💡', text: t.tip1 },
-    { icon: '💡', text: t.tip2 },
-    { icon: '💡', text: t.tip3 },
+    { icon: '', text: t.tip1 },
+    { icon: '', text: t.tip2 },
+    { icon: '', text: t.tip3 },
   ];
 
   return (
     <div className="instructions-page">
-      <Navbar lang={lang} setLang={setLang} onNavigate={onNavigate} currentPath="/instructions" />
+      <Navbar lang={lang} onNavigate={onNavigate} currentPath="/instructions" />
 
       {/* Hero Section */}
       <section className="instructions-page__hero">

@@ -9,17 +9,15 @@ import './ContactPage.css';
 
 export interface ContactPageProps {
   lang: Language;
-  setLang: (lang: Language) => void;
   onNavigate: (path: string) => void;
 }
 
-export const ContactPage: React.FC<ContactPageProps> = ({ lang, setLang, onNavigate }) => {
+export const ContactPage: React.FC<ContactPageProps> = ({ lang, onNavigate }) => {
 
   return (
     <div className="contact-page">
       <Navbar 
         lang={lang} 
-        setLang={setLang} 
         onNavigate={onNavigate} 
         currentPath="/contact" 
       />
@@ -38,17 +36,15 @@ export const ContactPage: React.FC<ContactPageProps> = ({ lang, setLang, onNavig
               }}
             />
             <div className="contact-page__image-fallback-content">
-              <span>👨‍💻</span>
+              <span></span>
             </div>
           </div>
 
-          <h2 className="contact-page__role">{lang === 'vi' ? 'NHÀ PHÁT TRIỂN' : 'DEVELOPER'}</h2>
+          <h2 className="contact-page__role">NHÀ PHÁT TRIỂN</h2>
           <h1 className="contact-page__name">Võ Anh Khải</h1>
 
           <p className="contact-page__bio">
-            {lang === 'vi' 
-              ? 'Dự án cá nhân thể hiện kỹ năng phát triển React, TypeScript và Spring Boot.'
-              : 'This personal project demonstrating skills in React, TypeScript, and Spring Boot development.'}
+            Dự án cá nhân thể hiện kỹ năng phát triển React, TypeScript và Spring Boot.
           </p>
 
           <div className="contact-page__tags">
@@ -60,7 +56,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ lang, setLang, onNavig
 
           <div className="contact-page__links">
             <a href="mailto:voanhkhai@example.com" className="contact-page__link">
-              {lang === 'vi' ? 'Gửi Email' : 'Email Me'}
+              Gửi Email
             </a>
             <a href="#" className="contact-page__link">
               LinkedIn

@@ -10,35 +10,34 @@ import './AboutPage.css';
 
 export interface AboutPageProps {
   lang: Language;
-  setLang: (lang: Language) => void;
   onNavigate: (path: string) => void;
 }
 
-export const AboutPage: React.FC<AboutPageProps> = ({ lang, setLang, onNavigate }) => {
+export const AboutPage: React.FC<AboutPageProps> = ({ lang, onNavigate }) => {
   const t = getTranslation(lang).about;
 
   const values = [
-    { icon: '✨', title: t.value1Title, desc: t.value1Desc, color: '#a855f7' },
-    { icon: '🎨', title: t.value2Title, desc: t.value2Desc, color: '#ec4899' },
-    { icon: '🔒', title: t.value3Title, desc: t.value3Desc, color: '#6366f1' },
+    { icon: '', title: t.value1Title, desc: t.value1Desc, color: '#a855f7' },
+    { icon: '', title: t.value2Title, desc: t.value2Desc, color: '#ec4899' },
+    { icon: '', title: t.value3Title, desc: t.value3Desc, color: '#6366f1' },
   ];
 
   const stats = [
-    { value: '1M+', label: t.stat1, icon: '📸' },
-    { value: '50K+', label: t.stat2, icon: '👥' },
-    { value: '10K+', label: t.stat3, icon: '🎉' },
-    { value: '50+', label: t.stat4, icon: '🌍' },
+    { value: '1M+', label: t.stat1, icon: '' },
+    { value: '50K+', label: t.stat2, icon: '' },
+    { value: '10K+', label: t.stat3, icon: '' },
+    { value: '50+', label: t.stat4, icon: '' },
   ];
 
   const timeline = [
-    { year: '2024', title: lang === 'en' ? 'The Beginning' : 'Khởi Đầu', desc: lang === 'en' ? 'PHOTObooth was born from a simple idea' : 'PHOTObooth ra đời từ ý tưởng đơn giản' },
-    { year: '2024', title: lang === 'en' ? 'First Release' : 'Phiên Bản Đầu', desc: lang === 'en' ? 'Launched with core features' : 'Ra mắt với các tính năng cốt lõi' },
-    { year: '2025', title: lang === 'en' ? 'AI Integration' : 'Tích Hợp AI', desc: lang === 'en' ? 'Smart filters and effects added' : 'Thêm bộ lọc và hiệu ứng thông minh' },
+    { year: '2024', title: 'Khởi Đầu', desc: 'PHOTObooth ra đời từ ý tưởng đơn giản' },
+    { year: '2024', title: 'Phiên Bản Đầu', desc: 'Ra mắt với các tính năng cốt lõi' },
+    { year: '2025', title: 'Tích Hợp AI', desc: 'Thêm bộ lọc và hiệu ứng thông minh' },
   ];
 
   return (
     <div className="about-page">
-      <Navbar lang={lang} setLang={setLang} onNavigate={onNavigate} currentPath="/about" />
+      <Navbar lang={lang} onNavigate={onNavigate} currentPath="/about" />
 
       {/* Hero Section */}
       <section className="about-page__hero">
@@ -47,7 +46,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ lang, setLang, onNavigate 
           <div className="about-page__hero-glow about-page__hero-glow--2"></div>
         </div>
         <div className="about-page__hero-content">
-          <span className="about-page__hero-badge">🚀 {lang === 'en' ? 'About Us' : 'Về Chúng Tôi'}</span>
+          <span className="about-page__hero-badge">🚀 Về Chúng Tôi</span>
           <h1 className="about-page__hero-title">
             {t.heroTitle.split(' ').slice(0, -1).join(' ')}{' '}
             <span className="about-page__hero-highlight">{t.heroTitle.split(' ').slice(-1)}</span>
@@ -80,7 +79,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ lang, setLang, onNavigate 
 
       {/* Timeline */}
       <section className="about-page__timeline">
-        <h2 className="about-page__section-title">{lang === 'en' ? 'Our Journey' : 'Hành Trình'}</h2>
+        <h2 className="about-page__section-title">Hành Trình</h2>
         <div className="about-page__timeline-track">
           {timeline.map((item, index) => (
             <div key={index} className="about-page__timeline-item">
@@ -126,8 +125,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ lang, setLang, onNavigate 
       {/* CTA */}
       <section className="about-page__cta">
         <div className="about-page__cta-content">
-          <h2 className="about-page__cta-title">{lang === 'en' ? 'Ready to start?' : 'Sẵn sàng bắt đầu?'}</h2>
-          <p className="about-page__cta-desc">{lang === 'en' ? 'Experience the magic of PHOTObooth today' : 'Trải nghiệm sự kỳ diệu của PHOTObooth ngay hôm nay'}</p>
+          <h2 className="about-page__cta-title">Sẵn sàng bắt đầu?</h2>
+          <p className="about-page__cta-desc">Trải nghiệm sự kỳ diệu của PHOTObooth ngay hôm nay</p>
           <button className="about-page__cta-btn" onClick={() => onNavigate('/booth')}>
             {getTranslation(lang).home.startBtn}
           </button>

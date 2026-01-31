@@ -64,7 +64,7 @@ const App: React.FC = () => {
   const [customFrame, setCustomFrame] = useState<CustomFrame | null>(null);
   
   // Language
-  const [lang, setLang] = useState<Language>('en');
+  const [lang] = useState<Language>('vi');
 
   // Booth session management (connects to backend)
   const boothSession = useBoothSession();
@@ -286,7 +286,6 @@ const App: React.FC = () => {
       {currentScreen === 'HOME' && (
         <HomePage 
           lang={lang} 
-          setLang={setLang}
           onNavigate={navigateToPath}
         />
       )}
@@ -294,7 +293,6 @@ const App: React.FC = () => {
       {currentScreen === 'ABOUT' && (
         <AboutPage 
           lang={lang} 
-          setLang={setLang}
           onNavigate={navigateToPath}
         />
       )}
@@ -302,7 +300,6 @@ const App: React.FC = () => {
       {currentScreen === 'INSTRUCTIONS' && (
         <InstructionsPage 
           lang={lang} 
-          setLang={setLang}
           onNavigate={navigateToPath}
         />
       )}
@@ -312,7 +309,6 @@ const App: React.FC = () => {
       {currentScreen === 'CONTACT' && (
         <ContactPage 
           lang={lang} 
-          setLang={setLang}
           onNavigate={navigateToPath}
         />
       )}
@@ -323,7 +319,6 @@ const App: React.FC = () => {
         <WelcomePage 
           onStart={handleStart} 
           lang={lang} 
-          setLang={setLang} 
         />
       )}
       

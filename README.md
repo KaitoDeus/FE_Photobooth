@@ -3,9 +3,10 @@
 ## Mục Lục
 
 1.  [Giới Thiệu](#1-giới-thiệu-đề-tài)
-2.  [Kiến Trúc Hệ Thống](#2-kiến-trúc-hệ-thống)
-3.  [Giao Diện](#3-giao-diện)
-4.  [Tác Giả & Liên Hệ](#4-tác-giả--liên-hệ)
+2.  [Công nghệ Sử Dụng](#2-công-nghệ-sử-dụng)
+3.  [Kiến Trúc Hệ Thống](#3-kiến-trúc-hệ-thống)
+4.  [Giao Diện](#4-giao-diện)
+5.  [Tác Giả & Liên Hệ](#5-tác-giả--liên-hệ)
 
 ---
 
@@ -15,7 +16,18 @@
 
 ---
 
-## 2. Kiến Trúc Hệ Thống
+## 2. Công nghệ Sử Dụng
+
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![HTML5 Canvas](https://img.shields.io/badge/HTML5_Canvas-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+
+---
+
+## 3. Kiến Trúc Hệ Thống
 
 ### Các Lớp Logic (Logic Layers)
 
@@ -91,7 +103,7 @@
 
 ---
 
-## 3. Giao Diện
+## 4. Giao Diện
 
 _Giao diện trang chủ hiện đại, tập trung vào trải nghiệm người dùng với các hiệu ứng tương tác mượt mà._
 
@@ -99,7 +111,7 @@ _Giao diện trang chủ hiện đại, tập trung vào trải nghiệm ngườ
 
 ---
 
-## 4. Tác Giả & Liên Hệ
+## 5. Tác Giả & Liên Hệ
 
 | Thông Tin     | Chi Tiết                                                |
 | :------------ | :------------------------------------------------------ |

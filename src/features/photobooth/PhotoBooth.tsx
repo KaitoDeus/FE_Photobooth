@@ -67,10 +67,8 @@ const PhotoBooth: React.FC = () => {
 
   return (
     <section id="photobooth" className="py-20 bg-brand-50 relative overflow-hidden min-h-[600px] flex items-center">
-      {/* Hidden Canvas for capture */}
       <canvas ref={refs.canvasRef} className="hidden" />
 
-      {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-10 right-10 w-64 h-64 bg-brand-200 rounded-full blur-3xl opacity-30 animate-pulse"></div>
         <div className="absolute bottom-10 left-10 w-80 h-80 bg-purple-200 rounded-full blur-3xl opacity-30 animate-pulse delay-1000"></div>

@@ -23,7 +23,6 @@ const LayoutSelectionStep: React.FC<LayoutSelectionStepProps> = ({
     <div className="p-6 md:p-10">
       <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">Bước 1: Chọn Kiểu Ảnh</h3>
       
-      {/* Layout Selection */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         {LAYOUTS.map((layout) => (
           <button
@@ -42,7 +41,6 @@ const LayoutSelectionStep: React.FC<LayoutSelectionStepProps> = ({
         ))}
       </div>
 
-      {/* Theme Selection */}
       <h4 className="text-sm font-semibold text-slate-700 mb-3 uppercase tracking-wider">Chọn Màu Viền</h4>
       <div className="flex gap-4 justify-center mb-10">
         {(Object.keys(THEMES) as FrameTheme[]).map((theme) => (

@@ -15,7 +15,7 @@ const HomePage: React.FC = () => {
     if (hash) {
       const element = document.getElementById(hash.replace('#', ''));
       if (element) {
-        // Wait a bit for render
+
         setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth' });
         }, 100);

@@ -16,7 +16,6 @@ const Hero: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           
-          {/* Text Content */}
           <Reveal className="text-center lg:text-left space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-brand-100">
               <Star className="w-4 h-4 text-brand-400 fill-brand-400" />
@@ -72,10 +71,7 @@ const Hero: React.FC = () => {
             </div>
           </Reveal>
 
-          {/* Visuals */}
           <Reveal delay={0.2} className="relative lg:h-[600px] flex justify-center items-center">
-             {/* Decorative blob */}
-             {/* Background Atmosphere Image */}
             <div className="absolute inset-0 z-0 select-none pointer-events-none">
               <img 
                 src={img5} 
@@ -83,7 +79,6 @@ const Hero: React.FC = () => {
                 className="w-full h-full object-cover opacity-30 blur-[60px] animate-pulse" 
               />
             </div>
-            {/* Decorative blob */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-brand-100 to-orange-50 rounded-full opacity-60 blur-3xl -z-10 animate-pulse" />
             
             <div className="grid grid-cols-2 gap-4 w-full max-w-md mx-auto relative z-10">

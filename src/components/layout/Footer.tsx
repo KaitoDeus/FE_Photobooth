@@ -34,7 +34,6 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
           
-          {/* Brand Column */}
           <div className="col-span-1 md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl overflow-hidden shadow-sm">
@@ -48,7 +47,6 @@ const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Discovery Column */}
           <div className="col-span-1 md:col-span-2">
             <h4 className="font-bold text-slate-900 mb-6 text-sm uppercase tracking-wide">Khám Phá</h4>
             <ul className="space-y-3 text-sm text-slate-600">
@@ -65,7 +63,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Contact Column */}
           <div className="col-span-1 md:col-span-3">
             <h4 className="font-bold text-slate-900 mb-6 text-sm uppercase tracking-wide">Liên Hệ</h4>
             <ul className="space-y-4 text-sm text-slate-600">
@@ -86,7 +83,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Social Column */}
           <div className="col-span-1 md:col-span-2">
             <h4 className="font-bold text-slate-900 mb-6 text-sm uppercase tracking-wide">Theo Dõi</h4>
             <div className="flex gap-4">

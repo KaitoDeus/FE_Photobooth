@@ -78,14 +78,12 @@ export const usePhotoBooth = () => {
     const targetCount = LAYOUTS.find(l => l.id === selectedLayout)?.count || 4;
 
     for (let i = 0; i < targetCount; i++) {
-        // Countdown
       for (let c = 3; c > 0; c--) {
         setCountDown(c);
         await new Promise(r => setTimeout(r, 1000));
       }
       setCountDown(null);
 
-      // Flash & Capture
       setFlash(true);
       capturePhoto();
       await new Promise(r => setTimeout(r, 150));

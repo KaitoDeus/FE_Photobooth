@@ -1,50 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Home, Info, Image, Grid, Phone, Camera } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Button from '../common/Button';
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Determine if scrolled for styling
-      setIsScrolled(currentScrollY > 20);
-
-      // Determine visibility
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down & past threshold -> Hide
-        setIsVisible(false);
-      } else {
-        // Scrolling up -> Show
-        setIsVisible(true);
-      }
-      
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
-
   const navLinks = [
-    { name: 'Trang chủ', path: '/', type: 'page' },
-    { name: 'Giới thiệu', path: '/about', type: 'page' },
-    { name: 'Bộ sưu tập', path: '/gallery', type: 'page' },
-    { name: 'Kho Frame', path: '/frames', type: 'page' },
-    { name: 'Liên hệ', path: '/contact', type: 'page' },
+    { name: 'Trang chủ', path: '/', type: 'page', icon: <Home size={24} /> },
+    { name: 'Giới thiệu', path: '/about', type: 'page', icon: <Info size={24} /> },
+    { name: 'Bộ sưu tập', path: '/gallery', type: 'page', icon: <Image size={24} /> },
+    { name: 'Kho Frame', path: '/frames', type: 'page', icon: <Grid size={24} /> },
+    { name: 'Liên hệ', path: '/contact', type: 'page', icon: <Phone size={24} /> },
   ];
 
   const handleNavigation = (link: { name: string, path: string, type: string, id?: string }) => {
-    setIsOpen(false);
+    if (window.innerWidth < 768) {
+        setSidebarOpen(false);
+    }
     if (link.type === 'page') {
       navigate(link.path);
       window.scrollTo(0, 0);
@@ -69,7 +44,7 @@ const Navbar: React.FC = () => {
   };
 
   const handleBooking = () => {
-     setIsOpen(false);
+     if (window.innerWidth < 768) setSidebarOpen(false);
      if (location.pathname === '/') {
         const element = document.getElementById('photobooth');
         if (element) {
@@ -81,69 +56,85 @@ const Navbar: React.FC = () => {
   }
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 select-none ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
-      } ${
-        isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
-          <div className="flex items-center gap-2 cursor-pointer" onClick={handleLogoClick}>
-            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-md rotate-3">
-              <img src="/logo.jpeg" alt="Palette Logo" className="w-full h-full object-cover" />
-            </div>
-            <span className="text-2xl font-bold text-slate-800 tracking-tight">
-              Photo Palette
-            </span>
+    <>
+      <nav 
+        className={`fixed top-0 left-0 h-screen bg-white/95 backdrop-blur-md shadow-2xl z-50 transition-transform duration-500 cubic-bezier(0.4, 0, 0.2, 1) border-r border-slate-100 flex flex-col w-80 ${
+          isSidebarOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full shadow-none'
+        }`}
+      >
+        <div className="p-6 flex items-center justify-between border-b border-slate-50">
+          <div 
+            className="flex items-center gap-3 cursor-pointer"
+            onClick={handleLogoClick}
+          >
+             <div className="w-10 h-10 rounded-xl overflow-hidden shadow-md">
+               <img src="/logo.jpeg" alt="Logo" className="w-full h-full object-cover" />
+             </div>
+             <span className="font-bold text-xl text-slate-800 tracking-tight">Palette</span>
           </div>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <button
-                key={link.name} 
-                onClick={() => handleNavigation(link)}
-                className="text-slate-600 hover:text-brand-500 font-medium transition-colors bg-transparent border-none cursor-pointer"
-              >
-                {link.name}
-              </button>
-            ))}
-            <Button onClick={handleBooking}>
-              Chụp Thử Ngay
-            </Button>
-          </nav>
-
-          {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-slate-600 hover:text-brand-500 p-2"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setSidebarOpen(false)}
+            className="p-2 rounded-full hover:bg-slate-100 text-slate-500 hover:text-red-500 transition-colors"
           >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            <X size={24} />
           </button>
         </div>
-      </div>
 
-      {/* Mobile Nav */}
-      {isOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-brand-100 shadow-xl p-4 flex flex-col gap-4 animate-in fade-in slide-in-from-top-5">
+        <div className="flex-1 flex flex-col gap-2 p-4 overflow-y-auto">
           {navLinks.map((link) => (
             <button
-              key={link.name} 
+              key={link.name}
               onClick={() => handleNavigation(link)}
-              className="text-lg font-medium text-slate-700 py-2 border-b border-slate-50 text-left w-full hover:text-brand-500 transition-colors"
+              className={`flex items-center gap-4 p-3 rounded-xl transition-all duration-200 group text-left ${
+                location.pathname === link.path 
+                  ? 'bg-brand-50 text-brand-600 shadow-sm' 
+                  : 'text-slate-600 hover:bg-slate-50 hover:text-brand-500'
+              }`}
             >
-              {link.name}
+              <div className={`${location.pathname === link.path ? 'text-brand-600' : 'text-slate-400 group-hover:text-brand-500'}`}>
+                {link.icon}
+              </div>
+              
+              <span className="font-medium text-lg">
+                {link.name}
+              </span>
+              
+              {location.pathname === link.path && (
+                 <div className="ml-auto w-2 h-2 rounded-full bg-brand-500" />
+              )}
             </button>
           ))}
-          <Button fullWidth onClick={handleBooking}>
-            Chụp Thử Ngay
-          </Button>
         </div>
-      )}
-    </header>
+
+        <div className="p-4 border-t border-slate-100 mt-auto">
+            <Button 
+              onClick={handleBooking} 
+              fullWidth={true}
+              className="flex items-center justify-center gap-2"
+            >
+               <Camera size={20} />
+               <span>Chụp Thử Ngay</span>
+            </Button>
+        </div>
+      </nav>
+
+      <button 
+        onClick={() => setSidebarOpen(true)}
+        className={`fixed top-6 left-6 z-40 p-3 bg-white/90 backdrop-blur-md shadow-lg rounded-full text-slate-700 hover:text-brand-600 hover:scale-110 transition-all duration-300 group border border-slate-100 ${isSidebarOpen ? 'opacity-0 scale-0 pointer-events-none' : 'opacity-100 scale-100'}`}
+        title="Mở Menu"
+      >
+        <Menu size={28} />
+      </button>
+
+      <div 
+        className={`fixed inset-0 bg-black/20 backdrop-blur-sm z-40 transition-opacity duration-300 ${
+            isSidebarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => setSidebarOpen(false)}
+      />
+    </>
+
   );
 };
 

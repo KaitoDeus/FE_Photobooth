@@ -11,7 +11,7 @@ import ContactPage from './pages/ContactPage';
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="min-h-screen bg-brand-50 overflow-x-hidden font-sans flex flex-col">
+      <div className="min-h-screen bg-brand-50 overflow-x-hidden font-sans flex flex-col transition-all duration-300">
         <Navbar />
         <main className="flex-grow">
           <Routes>

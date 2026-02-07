@@ -88,7 +88,7 @@ const PhotoBooth: React.FC = () => {
 
       <div className="max-w-4xl mx-auto w-full px-4 relative z-10">
         <Reveal>
-          <div className="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-brand-100 min-h-[500px]">
+          <div className="rounded-[2.5rem] overflow-hidden min-h-[500px] flex justify-center items-center">
             {renderStep()}
           </div>
         </Reveal>

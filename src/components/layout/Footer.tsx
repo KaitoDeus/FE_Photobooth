@@ -112,7 +112,16 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-brand-100/50 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-          <p className="text-slate-400 font-medium">© 2026 Photo Palette. All rights reserved.</p>
+          <div className="flex flex-col md:flex-row gap-4 items-center">
+            <p className="text-slate-400 font-medium">© 2026 Photo Palette.</p>
+            <span className="hidden md:block text-slate-300">•</span>
+            <button 
+              onClick={() => { navigate('/privacy'); window.scrollTo(0,0); }}
+              className="text-slate-400 hover:text-brand-500 font-medium transition-colors text-xs md:text-sm"
+            >
+              Chính Sách & Pháp Lý
+            </button>
+          </div>
           
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

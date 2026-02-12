@@ -111,7 +111,7 @@ const Testimonials: React.FC = () => {
   }, []);
 
   return (
-    <section id="testimonials" className="py-20 bg-white">
+    <section id="testimonials" className="py-20 bg-brand-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-16">
@@ -121,7 +121,7 @@ const Testimonials: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {displayedReviews.map((review, idx) => (
-            <Reveal key={idx} delay={idx * 0.1} className="bg-brand-50/30 p-8 rounded-3xl border border-brand-50 h-full flex flex-col">
+            <Reveal key={idx} delay={idx * 0.1} className="bg-white p-8 rounded-3xl border border-brand-100 shadow-sm hover:shadow-md transition-all h-full flex flex-col">
               <div className="flex gap-1 mb-4">
                 {[...Array(review.rating)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />

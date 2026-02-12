@@ -70,9 +70,10 @@ const FrameStrip = ({ frame, filled, size = 'md' }: { frame: Frame; filled: bool
             >
                 {filled && (
                     <img 
-                      src={`https://source.unsplash.com/random/100x100?sig=${frame.id}-${i}`} 
+                      src={`https://picsum.photos/seed/${frame.id}-${i}/100/100`} 
                       alt="pose" 
                       className="w-full h-full object-cover opacity-80"
+                      loading="lazy"
                       onError={(e) => {
                           e.currentTarget.style.display = 'none';
                           e.currentTarget.parentElement!.style.backgroundColor = '#e2e8f0';

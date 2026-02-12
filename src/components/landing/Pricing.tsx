@@ -32,7 +32,7 @@ const Pricing: React.FC = () => {
   ];
 
   return (
-    <section id="pricing" className="py-20 bg-white">
+    <section id="pricing" className="py-20 bg-brand-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
@@ -47,8 +47,8 @@ const Pricing: React.FC = () => {
               delay={index * 0.1}
               className={`relative p-8 rounded-3xl border ${
                 pkg.highlight 
-                  ? 'bg-brand-50 border-brand-200 shadow-xl scale-105 z-10' 
-                  : 'bg-white border-slate-100 shadow-lg hover:border-brand-100'
+                  ? 'bg-rose-50 border-brand-200 shadow-xl scale-105 z-10' 
+                  : 'bg-white border-brand-100 shadow-md hover:shadow-xl transition-all duration-300'
               }`}
             >
               {pkg.highlight && (

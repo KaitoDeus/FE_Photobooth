@@ -7,18 +7,6 @@ import avatar from '../assets/avatar.jpg';
 const ContactPage: React.FC = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
-
-        // Change favicon to logo.jpeg for this page
-        const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
-        if (link) {
-            const originalFavicon = link.href;
-            link.href = '/logo.jpeg';
-
-            // Revert back when leaving the page
-            return () => {
-                link.href = originalFavicon;
-            };
-        }
     }, []);
 
     return (

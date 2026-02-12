@@ -13,7 +13,7 @@ import DisclaimerModal from './components/common/DisclaimerModal';
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="min-h-screen bg-brand-50 overflow-x-hidden font-sans flex flex-col transition-all duration-300">
+      <div className="min-h-screen bg-brand-50 overflow-x-hidden font-sans flex flex-col transition-all duration-300 md:pl-20">
         <Navbar />
         <DisclaimerModal />
         <main className="flex-grow">

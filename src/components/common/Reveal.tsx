@@ -11,6 +11,8 @@ const Reveal: React.FC<RevealProps> = ({ children, delay = 0, className = "" }) 
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const currentRef = ref.current;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -24,13 +26,13 @@ const Reveal: React.FC<RevealProps> = ({ children, delay = 0, className = "" }) 
       }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);

@@ -5,6 +5,7 @@ import Gallery from '../components/landing/Gallery';
 import Pricing from '../components/landing/Pricing';
 import HowItWorks from '../components/landing/HowItWorks';
 import Testimonials from '../components/landing/Testimonials';
+import Stats from '../components/landing/Stats';
 import PhotoBooth from '../features/photobooth/PhotoBooth';
 import { useLocation } from 'react-router-dom';
 
@@ -15,7 +16,6 @@ const HomePage: React.FC = () => {
     if (hash) {
       const element = document.getElementById(hash.replace('#', ''));
       if (element) {
-
         setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth' });
         }, 100);
@@ -26,12 +26,13 @@ const HomePage: React.FC = () => {
   }, [hash]);
 
   return (
-    <div className="bg-transparent overflow-x-hidden font-sans">
+    <div className="bg-transparent overflow-x-hidden font-sans space-y-0">
       <Hero />
+      <Stats />
       <Features />
       <Gallery />
-      <Pricing />
       <HowItWorks />
+      <Pricing />
       <Testimonials />
       <PhotoBooth />
     </div>

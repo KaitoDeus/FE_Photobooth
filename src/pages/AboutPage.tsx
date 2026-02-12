@@ -1,8 +1,74 @@
 import React, { useMemo, useEffect } from 'react';
 import Reveal from '../components/common/Reveal';
-import { BRANCHES, Branch } from '../data/branches';
-import { MapPin, Building2, Map, Store, Flag, Calendar, Star } from 'lucide-react';
+import { BRANCHES } from '../data/branches';
+import { MapPin, Store, Flag, Calendar, Star, ChevronDown } from 'lucide-react';
 import storyImage from '../assets/6.webp';
+
+interface CustomDropdownProps {
+  value: string;
+  options: string[];
+  onChange: (value: string) => void;
+  placeholder: string;
+  disabled?: boolean;
+}
+
+const CustomDropdown: React.FC<CustomDropdownProps> = ({ value, options, onChange, placeholder, disabled }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const dropdownRef = React.useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+         setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  if (disabled) {
+    return (
+      <div className="relative w-full opacity-50 cursor-not-allowed">
+         <div className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-slate-400 font-medium bg-slate-50 flex justify-between items-center text-sm">
+            <span>{placeholder}</span>
+            <ChevronDown size={18} />
+         </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative w-full" ref={dropdownRef}>
+       <button 
+          onClick={() => setIsOpen(!isOpen)}
+          className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-slate-700 font-semibold bg-white hover:border-brand-300 focus:outline-none focus:ring-4 focus:ring-brand-500/10 flex justify-between items-center transition-all duration-300 hover:shadow-md text-sm"
+       >
+          <span>{value || placeholder}</span>
+          <ChevronDown size={18} className={`text-slate-400 transition-transform duration-500 ${isOpen ? 'rotate-180 text-brand-500' : ''}`} />
+       </button>
+       
+       <div className={`absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-brand-50 overflow-hidden transition-all duration-300 origin-top z-50 ${isOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'}`}>
+           <div className="max-h-60 overflow-y-auto custom-scrollbar">
+              <div 
+                 onClick={() => { onChange(''); setIsOpen(false); }}
+                 className={`px-4 py-2.5 cursor-pointer transition-colors duration-200 text-sm font-semibold ${!value ? 'bg-brand-50 text-brand-500' : 'text-slate-600 hover:bg-slate-50 hover:text-brand-500'}`}
+              >
+                 {placeholder}
+              </div>
+              {options.map((option) => (
+                  <div 
+                     key={option}
+                     onClick={() => { onChange(option); setIsOpen(false); }}
+                     className={`px-4 py-2.5 cursor-pointer transition-colors duration-200 text-sm font-semibold ${value === option ? 'bg-brand-50 text-brand-600' : 'text-slate-600 hover:bg-slate-50 hover:text-brand-500'}`}
+                  >
+                     {option}
+                  </div>
+              ))}
+           </div>
+       </div>
+    </div>
+  );
+};
 
 const AboutPage: React.FC = () => {
   useEffect(() => {
@@ -120,7 +186,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Branches Locator Section */}
-      <section className="py-20">
+      <section className="py-20" id="locator">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center mb-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">Hệ thống Chi Nhánh</h2>
@@ -130,34 +196,26 @@ const AboutPage: React.FC = () => {
             {/* Left Col: Search & List */}
             <div className="w-full lg:w-1/3 bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden flex flex-col h-[600px] lg:h-full">
                {/* Search Form */}
-               <div className="bg-brand-50/50 p-6 border-b border-brand-100">
+               <div className="bg-brand-50/50 p-6 border-b border-brand-100 text-left">
                   <div className="space-y-4">
                      <div>
                         <label className="block text-sm font-semibold text-slate-700 mb-2">Tỉnh / Thành Phố</label>
-                        <select 
+                        <CustomDropdown 
                            value={selectedCity}
-                           onChange={(e) => setSelectedCity(e.target.value)}
-                           className="w-full px-4 py-2 rounded-xl border border-slate-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none bg-white transition-all text-slate-700"
-                        >
-                           <option value="">Tất cả chi nhánh</option>
-                           {cities.map(city => (
-                              <option key={city} value={city}>{city}</option>
-                           ))}
-                        </select>
+                           options={cities}
+                           onChange={setSelectedCity}
+                           placeholder="Tất cả chi nhánh"
+                        />
                      </div>
                      <div>
                         <label className="block text-sm font-semibold text-slate-700 mb-2">Quận / Huyện</label>
-                        <select 
+                        <CustomDropdown 
                            value={selectedDistrict}
-                           onChange={(e) => setSelectedDistrict(e.target.value)}
+                           options={districts}
+                           onChange={setSelectedDistrict}
+                           placeholder="Tất cả khu vực"
                            disabled={!selectedCity}
-                           className="w-full px-4 py-2 rounded-xl border border-slate-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none bg-white transition-all text-slate-700 disabled:bg-slate-100 disabled:text-slate-400"
-                        >
-                           <option value="">Tất cả khu vực</option>
-                           {districts.map(dist => (
-                              <option key={dist} value={dist}>{dist}</option>
-                           ))}
-                        </select>
+                        />
                      </div>
                      <button 
                         onClick={handleSearch}
@@ -169,7 +227,7 @@ const AboutPage: React.FC = () => {
                </div>
 
                {/* Results List */}
-               <div className="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar bg-slate-50/30">
+               <div className="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar bg-slate-50/30 text-left">
                   {filteredBranches.map(branch => (
                      <div 
                         key={branch.id}
@@ -214,7 +272,7 @@ const AboutPage: React.FC = () => {
                ) : (
                   <div className="absolute inset-0 flex items-center justify-center text-slate-400 bg-slate-50">
                      <div className="text-center">
-                        <Map size={48} className="mx-auto mb-2 opacity-50" />
+                        <MapPin size={48} className="mx-auto mb-2 opacity-50" />
                         <p>Chọn một chi nhánh để xem bản đồ</p>
                      </div>
                   </div>

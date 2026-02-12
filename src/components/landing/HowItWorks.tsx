@@ -50,8 +50,6 @@ const HowItWorks: React.FC = () => {
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-stretch relative">
-          {/* Connecting dashed line (Desktop) */}
-          <div className="hidden md:block absolute top-[120px] left-[15%] right-[15%] h-0 border-t-2 border-dashed border-brand-200 -z-10" />
 
           {steps.map((step, idx) => (
             <Reveal key={idx} delay={idx * 0.2} className="relative h-full">

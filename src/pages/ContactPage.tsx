@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import Reveal from '../components/common/Reveal';
-import { Phone, Mail, Facebook, Instagram, Code, User, Send } from 'lucide-react';
-import Button from '../components/common/Button';
+import { Mail, Facebook, Instagram, Code } from 'lucide-react';
 import avatar from '../assets/avatar.jpg';
 
 const ContactPage: React.FC = () => {
